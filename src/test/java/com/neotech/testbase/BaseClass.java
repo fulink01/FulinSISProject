@@ -37,7 +37,11 @@ public class BaseClass {
 
 		String website = ConfigsReader.getProperty("url");
 		driver.get(website);
+		
+		PageInitializer.initialize();
 	}
+	
+	
 
 	public static void tearDown() {
 		if (driver != null) {
