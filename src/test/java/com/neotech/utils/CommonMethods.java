@@ -1,11 +1,14 @@
 package com.neotech.utils;
 
+import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
@@ -97,18 +100,18 @@ public class CommonMethods extends PageInitializer {
 		return wait;
 	}
 
-	public static WebElement waitClickability(WebElement element) {
+	public static WebElement waitForClickability(WebElement element) {
 
 		return getWaitObject().until(ExpectedConditions.elementToBeClickable(element));
 	}
 
-	public static WebElement waitVisibilty(WebElement element) {
+	public static WebElement waitForVisibility(WebElement element) {
 
 		return getWaitObject().until(ExpectedConditions.visibilityOf(element));
 	}
 
 	public static void click(WebElement element) {
-		waitClickability(element);
+		waitForClickability(element);
 		element.click();
 	}
 
@@ -126,7 +129,18 @@ public class CommonMethods extends PageInitializer {
 	public static byte[] takeScreenShot(String fileName) {
 
 		TakesScreenshot ts = (TakesScreenshot) driver;
+		
+		File sourceFile = ts.getScreenshotAs(OutputType.FILE);
+
+		String destination = Constants.SCREENSHOT_FILEPATH + fileName + getTimeStamp() + ".png";
+
+		try {
+			FileUtils.copyFile(sourceFile, new File(destination));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		byte[] pic = ts.getScreenshotAs(OutputType.BYTES);
+		
 		return pic;
 	}
 	
@@ -160,6 +174,14 @@ public class CommonMethods extends PageInitializer {
 			}
 		}
 		
+	}
+	
+	public static void wait(int seconds) {
+		try {
+			Thread.sleep(seconds * 1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 
 }

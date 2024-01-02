@@ -25,9 +25,6 @@ public class LoginPageElements extends CommonMethods {
 	@FindBy(id = "dAcademicYear_list")
 	public WebElement academicYearDropdown;
 	
-	@FindBy(id = "dAcademicYear_list")
-	public List<WebElement> academicYearList;
-	
 	@FindBy(id = "bLogin")
 	public WebElement login;
 	
