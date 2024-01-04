@@ -21,11 +21,11 @@ public class Hooks extends CommonMethods{
 
 		if (scenario.isFailed()) {
 
-			picture = CommonMethods.takeScreenShot("failed/" + scenario.getName());
+			picture = CommonMethods.takeScreenShot("/failed/" + scenario.getName());
 		
 		} else {
 
-			picture = CommonMethods.takeScreenShot("passed/" + scenario.getName());
+			picture = CommonMethods.takeScreenShot("/passed/" + scenario.getName());
 		}
 
 		scenario.attach(picture, "image/png", scenario.getName());

@@ -26,7 +26,7 @@ public class CommonMethods extends PageInitializer {
 	public static void sendText(WebElement element, String text) {
 
 		element.clear();
-		element.sendKeys();
+		element.sendKeys(text);
 	}
 
 	public static void clickBox(List<WebElement> elementList, String selectValue) {

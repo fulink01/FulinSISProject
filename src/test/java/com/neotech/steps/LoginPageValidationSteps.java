@@ -12,12 +12,13 @@ public class LoginPageValidationSteps extends CommonMethods {
 
 	@When("enter valid username")
 	public void enter_valid_username() {
-	    login.username.sendKeys(ConfigsReader.getProperty("username"));
+		sendText(login.username, ConfigsReader.getProperty("username"));
+		
 	}
 	
 	@When("enter valid password")
 	public void enter_valid_password() {
-	    login.password.sendKeys(ConfigsReader.getProperty("password"));
+		sendText(login.password, ConfigsReader.getProperty("password"));
 	}
 	
 	@When("select valid academic year")
@@ -43,7 +44,7 @@ public class LoginPageValidationSteps extends CommonMethods {
 	
 	@When("leave empty password box")
 	public void leave_empty_password_box() {
-	    login.password.sendKeys("");
+		sendText(login.password, ConfigsReader.getProperty(""));
 	    wait(2);
 	}
 	
@@ -58,7 +59,7 @@ public class LoginPageValidationSteps extends CommonMethods {
 	@When("enter invalid username")
 	public void enter_invalid_username() {
 	    
-		login.username.sendKeys("Admin1");
+		sendText(login.username, ConfigsReader.getProperty("Admin1"));
 	}
 	
 	@Then("verify that username does not match")
