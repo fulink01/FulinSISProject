@@ -9,25 +9,19 @@ import io.cucumber.junit.CucumberOptions;
 
 @CucumberOptions(
 		features = "src/test/resources/features/",
-
 		glue = "com.neotech.steps",
-
-		dryRun = true,
-
-		tags = "",
-
+		dryRun = false,
+		tags = "@excelDataTable",
 		monochrome = true,
 		
 		plugin = {
-				"pretty",
+				// "pretty",
 				"html:target/cucumber-default-report.html",
 				"json:target/cucumber.json",
 				"rerun:target/failed.txt"
 				}
-)
+		)
 
 public class RegressionRunner {
 
-	
-	
 }

@@ -4,6 +4,7 @@ import com.neotech.pages.HomePageElements;
 import com.neotech.pages.LoginPageElements;
 import com.neotech.pages.ParentLoginPageElements;
 import com.neotech.pages.ParentSubTabPageElements;
+import com.neotech.pages.QueryPageElements;
 import com.neotech.pages.StaffPageElements;
 import com.neotech.pages.StudentLoginPageElements;
 import com.neotech.pages.StudentPageElements;
@@ -19,6 +20,7 @@ public class PageInitializer extends BaseClass {
 	public static StudentLoginPageElements studentLogin;
 	public static TeacherLoginPageElements teacherLogin;
 	public static ParentLoginPageElements parentLogin;
+	public static QueryPageElements query;
 
 	public static void initialize() {
 
@@ -30,6 +32,7 @@ public class PageInitializer extends BaseClass {
 		studentLogin = new StudentLoginPageElements();
 		teacherLogin = new TeacherLoginPageElements();
 		parentLogin = new ParentLoginPageElements();
+		query = new QueryPageElements();
 	}
 
 }

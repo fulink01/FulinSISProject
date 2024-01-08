@@ -19,6 +19,10 @@ public class HomePageElements extends CommonMethods {
 	@FindBy(xpath = "//*[@id='form1']/table[2]/tbody/tr[1]/td[1]/table/tbody/tr/td[@background='../../Common/themes/Blue/mBg.jpg']")
 	public List<WebElement> homepageSubTabs;
 	
+	@FindBy(xpath = "//*[@id='form1']/table[3]/tbody/tr[1]/td[1]/table/tbody/tr/td[@background='../../Common/themes/Blue/mBg.jpg']")
+	public List<WebElement> settingTabSubTabs;
+	
+
 	public HomePageElements() {
 		PageFactory.initElements(driver, this);
 	}

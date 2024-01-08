@@ -7,7 +7,7 @@ import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 
-public class Hooks extends CommonMethods{
+public class Hooks {
 	
 	@Before
 	public static void start() {
@@ -21,15 +21,15 @@ public class Hooks extends CommonMethods{
 
 		if (scenario.isFailed()) {
 
-			picture = CommonMethods.takeScreenShot("/failed/" + scenario.getName());
+			picture = CommonMethods.takeScreenShot("failed/" + scenario.getName());
 		
 		} else {
 
-			picture = CommonMethods.takeScreenShot("/passed/" + scenario.getName());
+			picture = CommonMethods.takeScreenShot("passed/" + scenario.getName());
 		}
 
 		scenario.attach(picture, "image/png", scenario.getName());
-
+		
 		BaseClass.tearDown();
 		
 	}

@@ -23,7 +23,7 @@ public class LoginPageValidationSteps extends CommonMethods {
 	
 	@When("select valid academic year")
 	public void select_valid_academic_year() {
-	    click(login.academicYearDropdown);
+
 	    selectDropdown(login.academicYearDropdown, "2020-2021");
 	}
 	
@@ -44,7 +44,7 @@ public class LoginPageValidationSteps extends CommonMethods {
 	
 	@When("leave empty password box")
 	public void leave_empty_password_box() {
-		sendText(login.password, ConfigsReader.getProperty(""));
+		sendText(login.password,"");
 	    wait(2);
 	}
 	
@@ -59,7 +59,7 @@ public class LoginPageValidationSteps extends CommonMethods {
 	@When("enter invalid username")
 	public void enter_invalid_username() {
 	    
-		sendText(login.username, ConfigsReader.getProperty("Admin1"));
+		sendText(login.username, "Admin1");
 	}
 	
 	@Then("verify that username does not match")

@@ -11,6 +11,7 @@ import java.util.Set;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
@@ -43,22 +44,33 @@ public class CommonMethods extends PageInitializer {
 
 	public static void selectDropdown(WebElement el, String visibleText) {
 
-		Select sel = new Select(el);
-		sel.selectByVisibleText(visibleText);
+		try {
+			Select sel = new Select(el);
+			sel.selectByVisibleText(visibleText);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	public static void acceptAlert() {
-
-		Alert alert = driver.switchTo().alert();
-		alert.accept();
+		try {
+			Alert alert = driver.switchTo().alert();
+			alert.accept();
+		} catch (NoAlertPresentException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public static String getAlertText() {
 
 		String alertText = null;
 
-		Alert alert = driver.switchTo().alert();
-		alertText = alert.getText();
+		try {
+			Alert alert = driver.switchTo().alert();
+			alertText = alert.getText();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return alertText;
 
 	}
@@ -152,7 +164,7 @@ public class CommonMethods extends PageInitializer {
 		return sdf.format(date);
 	}
 	
-	public static void loadPicture(WebElement drag, WebElement drop) {
+	public static void dragAndDrop(WebElement drag, WebElement drop) {
 		
 		Actions action = new Actions(driver);
 		
