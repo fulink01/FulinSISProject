@@ -10,6 +10,7 @@ import com.neotech.pages.StudentLoginPageElements;
 import com.neotech.pages.StudentPageElements;
 import com.neotech.pages.TeacherLoginPageElements;
 
+
 public class PageInitializer extends BaseClass {
 
 	public static LoginPageElements login;
@@ -21,6 +22,7 @@ public class PageInitializer extends BaseClass {
 	public static TeacherLoginPageElements teacherLogin;
 	public static ParentLoginPageElements parentLogin;
 	public static QueryPageElements query;
+	
 
 	public static void initialize() {
 
@@ -33,6 +35,7 @@ public class PageInitializer extends BaseClass {
 		teacherLogin = new TeacherLoginPageElements();
 		parentLogin = new ParentLoginPageElements();
 		query = new QueryPageElements();
+		
 	}
 
 }
